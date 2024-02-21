@@ -13,7 +13,6 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static("public"));
 
-
 //logger
 app.use((req, res, next) => {
     req.time = new Date(Date.now()).toString();
@@ -21,11 +20,47 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get("/api", async (req, res) => {
-    
+app.get("/home", async (req, res) => {
+    res.locals.currentPage = "home";
     res.render("index.ejs");
 });
 
-app.listen(8000, () => {
-    console.log("connected to db & listening on port", 8000);
+app.get("/about", async (req, res) => {
+     res.locals.currentPage = "about";
+    res.render("about.ejs");
 });
+
+app.get("/service", async (req, res) => {
+    res.locals.currentPage = "service";
+    res.render("service.ejs");
+});
+
+app.get("/product", async (req, res) => {
+    res.locals.currentPage = "product";
+    res.render("product.ejs");
+});
+
+app.get("/login", async (req, res) => {
+    res.locals.currentPage = "login";
+    res.render("login.ejs");
+});
+
+app.get("/contact", async (req, res) => {
+    res.locals.currentPage = "contact";
+    res.render("contact.ejs");
+});
+
+mongoose
+    .connect(process.env.MONGO_URI)
+    .then(() => {
+        // listen for requests
+        app.listen(process.env.PORT, () => {
+            console.log(
+                "connected to db & listening on port",
+                process.env.PORT
+            );
+        });
+    })
+    .catch((error) => {
+        console.log(error);
+    });
