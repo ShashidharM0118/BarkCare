@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
+const contact = require("./models/contactModel.js");
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -50,10 +51,24 @@ app.get("/contact", async (req, res) => {
     res.render("contact.ejs");
 });
 
+app.post("/contact", async (req, res) => {
+    try{
+      const newcontact = new contact(req.body.contact);
+      await newcontact.save();
+    }
+    catch(err){
+       next(err);
+    }
+    console.log("response saved");
+    res.redirect("/contact");
+
+});
+
+
+
 mongoose
     .connect(process.env.MONGO_URI)
     .then(() => {
-        // listen for requests
         app.listen(process.env.PORT, () => {
             console.log(
                 "connected to db & listening on port",
