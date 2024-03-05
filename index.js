@@ -12,6 +12,7 @@ const service = require("./routes/service.js");
 const about = require("./routes/about.js");
 const userRoutes = require("./routes/user.js");
 
+const session = require("express-session");
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -27,7 +28,13 @@ app.use(express.static("public"));
 //     next();
 // });
 
-
+app.use(
+  session({
+    secret: "your-secret-key",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 
 app.use("/", userRoutes);
 app.use("/contact",contact);
@@ -49,3 +56,9 @@ mongoose
     .catch((error) => {
         console.log(error);
     });
+
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
+db.once("open", () => {
+  console.log("Connected to MongoDB");
+});

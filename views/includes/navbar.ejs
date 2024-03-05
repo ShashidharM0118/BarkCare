@@ -12,10 +12,10 @@
                 <a href="about" class="nav-item nav-link <%= currentPage === 'about' ? 'active' : '' %>">About</a>
                 <a href="service" class="nav-item nav-link <%= currentPage === 'service' ? 'active' : '' %>">Service</a>
                 <a href="product" class="nav-item nav-link <%= currentPage === 'product' ? 'active' : '' %>">Product</a>
-                <a href="login" class="nav-item nav-link <%= currentPage === 'login' ? 'active' : '' %>" style = "color:red;">Logout</a>
+               
+                <a href="login" class="nav-item nav-link <%= currentPage === 'login' ? 'active' : '' %>" style = "color:red;">  <span> <%= user.email %> </span> Logout</a>
                 <a href="contact" class="nav-item nav-link nav-contact bg-primary text-white px-5 ms-lg-5">Contact <i class="bi bi-arrow-right"></i></a>
             </div>
         </div>
     </nav>
-    
 </footer>

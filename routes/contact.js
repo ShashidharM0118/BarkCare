@@ -1,23 +1,35 @@
-const {contactSchema} = require("../schema.js");
+
+// routes/index.js
 const express = require("express");
 const router = express.Router();
-const contact = require("../models/contactModel.js");
+const { getUserData } = require("../controllers/userController");
+const session = require("express-session");
 
 router.get("/", async (req, res) => {
-    res.locals.currentPage = "contact";
+  try {
+    const userId = req.session.userId;
+
+    if (!userId) {
+
+      return res.redirect("/login"); // Redirect to login page if not logged in
+    }
+     console.log(userId)
+    const user = await getUserData(userId);
+
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+
+    res.locals = {
+      currentPage: "contact",
+      user: user,
+    };
+
     res.render("contact.ejs");
-});
-
-router.post("/", async (req, res) => {
-      const {error} = contactSchema.validate(req.body);
-      console.log(error);
-      const newcontact = new contact(req.body.contact);
-      await newcontact.save();
-   
-   
-    console.log("response saved");
-    res.redirect("/contact");
-
+  } catch (error) {
+    console.error("Error in the home route:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 module.exports = router;
