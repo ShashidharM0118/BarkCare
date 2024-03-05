@@ -17,10 +17,10 @@ router.get("/signup", async (req, res) => {
 });
 
 // login route
-router.post('/', loginUser)
+router.post('/login', loginUser)
 
 // signup route
-router.post('/', signupUser)
+router.post('/signup', signupUser)
 
 module.exports = router
 

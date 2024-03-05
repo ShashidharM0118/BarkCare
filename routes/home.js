@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
     res.locals.currentPage = "home";
+
     res.render("index.ejs");
 });
 
