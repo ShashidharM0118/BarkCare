@@ -5,7 +5,13 @@ const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-const contact = require("./models/contactModel.js");
+const contact = require("./routes/contact.js");
+const product = require("./routes/product.js");
+const home = require("./routes/home.js");
+const service = require("./routes/service.js");
+const about = require("./routes/about.js");
+const userRoutes = require("./routes/user.js");
+
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -21,50 +27,14 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get("/home", async (req, res) => {
-    res.locals.currentPage = "home";
-    res.render("index.ejs");
-});
-
-app.get("/about", async (req, res) => {
-     res.locals.currentPage = "about";
-    res.render("about.ejs");
-});
-
-app.get("/service", async (req, res) => {
-    res.locals.currentPage = "service";
-    res.render("service.ejs");
-});
-
-app.get("/product", async (req, res) => {
-    res.locals.currentPage = "product";
-    res.render("product.ejs");
-});
-
-app.get("/login", async (req, res) => {
-    res.locals.currentPage = "login";
-    res.render("login.ejs");
-});
-
-app.get("/contact", async (req, res) => {
-    res.locals.currentPage = "contact";
-    res.render("contact.ejs");
-});
-
-app.post("/contact", async (req, res) => {
-    try{
-      const newcontact = new contact(req.body.contact);
-      await newcontact.save();
-    }
-    catch(err){
-       next(err);
-    }
-    console.log("response saved");
-    res.redirect("/contact");
-
-});
 
 
+app.use("/", userRoutes);
+app.use("/contact",contact);
+app.use("/product",product);
+app.use("/home",home);
+app.use("/service",service);
+app.use("/about",about);
 
 mongoose
     .connect(process.env.MONGO_URI)

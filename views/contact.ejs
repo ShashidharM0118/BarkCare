@@ -14,16 +14,19 @@
                     <form method = "post" action="/contact" novalidate class= "needs-validation">
                         <div class="row g-3">
                             <div class="col-12">
-                                <input type="text" class="form-control bg-light border-0 px-4" name = "contact[name]" placeholder="Your Name" required style="height: 55px;">
+                                <input type="text" class="form-control bg-light" name = "contact[name]" placeholder="Your Name" required style="height: 55px;">
                             </div>
                             <div class="col-12">
-                                <input type="email" class="form-control bg-light border-0 px-4" name= "contact[email]" placeholder="Your Email"  required style="height: 55px;">
+                                <input type="email" class="form-control bg-light" name= "contact[email]" placeholder="Your Email"  required style="height: 55px;">
+                              <div class="invalid-feedback">
+                                  Enter valid email
+                              </div>
                             </div>
                             <div class="col-12">
-                                <input type="text" class="form-control bg-light border-0 px-4" name = "contact[subject]" placeholder="Subject" required style="height: 55px;">
+                                <input type="text" class="form-control bg-light" name = "contact[subject]" placeholder="Subject" required style="height: 55px;">
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control bg-light border-0 px-4 py-3" rows="8" name= "contact[message]" required placeholder="Message"></textarea>
+                                <textarea class="form-control bg-light px-4 py-3" rows="8" name= "contact[message]" required placeholder="Message"></textarea>
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>

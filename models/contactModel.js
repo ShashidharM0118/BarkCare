@@ -9,7 +9,6 @@ const contactSchema = new Schema({
     email: {
         type: String,
         required: true,
-        unique: true,
     },
     subject:{
         type: String,
@@ -22,4 +21,4 @@ const contactSchema = new Schema({
 });
 
 const contact = mongoose.model("contact", contactSchema);
-module.exports = contact;
+module.exports = contact;   
