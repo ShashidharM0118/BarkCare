@@ -44,12 +44,12 @@ app.use("/service",service);
 app.use("/about",about);
 
 mongoose
-    .connect(process.env.MONGO_URI)
+    .connect("mongodb+srv://peton:web_project@peton.kfq9tqd.mongodb.net/")
     .then(() => {
-        app.listen(process.env.PORT, () => {
+        app.listen(5000, () => {
             console.log(
                 "connected to db & listening on port",
-                process.env.PORT
+                5000
             );
         });
     })
