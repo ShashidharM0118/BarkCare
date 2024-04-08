@@ -11,10 +11,10 @@ router.get("/login", async (req, res) => {
     res.render("login.ejs");
 });
 
-router.get("/signup", async (req, res) => {
-    res.locals.currentPage = "login";
-    res.render("signup.ejs");
-});
+// router.get("/signup", async (req, res) => {
+//     res.locals.currentPage = "login";
+//     res.render("signup.ejs");
+// });
 
 // login route
 router.post('/login', loginUser)

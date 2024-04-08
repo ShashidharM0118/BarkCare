@@ -1,7 +1,22 @@
 
+nav{
+   
+}
+.navbar {
+   background-color:#eefeec !important;
+    
+}
+
+.hero-header{
+   height:100vh;
+
+}
+
+
+
 :root {
-  --primary: #7AB730;
-  --secondary: #FFD33C;
+  --primary: #72ca07;
+  --secondary: #c79800;
   --light: #F3F3F3;
   --dark: #212121;
 }
@@ -23,7 +38,7 @@
 }
 
 .btn-primary {
-  color: #FFFFFF;
+  color: #812c2c;
 }
 
 .btn-square {
@@ -114,8 +129,10 @@
 }
 
 .hero-header {
-  background: url(../img/hero.jpg) top right no-repeat;
+  background: url(../img/hero.jpg), rgba(0, 0, 0, 1);
   background-size: cover;
+  margin:0px !important;
+  
 }
 
 .btn-play {
@@ -183,31 +200,6 @@
     transform: translateX(-50%) translateY(-50%) translateZ(0) scale(2);
     opacity: 0;
   }
-}
-
-#videoModal .modal-dialog {
-  position: relative;
-  max-width: 800px;
-  margin: 60px auto 0 auto;
-}
-
-#videoModal .modal-body {
-  position: relative;
-  padding: 0px;
-}
-
-#videoModal .close {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  right: 0px;
-  top: -30px;
-  z-index: 999;
-  font-size: 30px;
-  font-weight: normal;
-  color: #FFFFFF;
-  background: #000000;
-  opacity: 1;
 }
 
 .service-item a i {
