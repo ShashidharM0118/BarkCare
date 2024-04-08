@@ -1,105 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<html>
+
 <head>
-  <title>Login V18</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-  <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="css/util.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
+	<link rel="stylesheet" href="css/login.css">
 </head>
-<body style="background-color: #666666;">
+<body>
+    <div id="container" class="container">
+        <!-- FORM SECTION -->
+		<div class="row">
+            <!-- SIGN UP -->
+			<form action="/signup" method="post" class="col align-items-center flex-col sign-up" >
+                <div class="form-wrapper align-items-center">
+                    <div class="form sign-up">
+                        <div class="input-group">
+                            <i class='bx bxs-user'></i>
+							<input type="text" placeholder="Username" name="username">
+						</div>
+						<div class="input-group">
+                            <i class='bx bx-mail-send'></i>
+							<input type="email" placeholder="Email" name="email">
+						</div>
+						<div class="input-group">
+                            <i class='bx bxs-lock-alt'></i>
+							<input type="password" placeholder="Password" name="password">
+						</div>
+						<div class="input-group">
+                            <i class='bx bxs-lock-alt'></i>
+							<input type="password" placeholder="Confirm password">
+						</div>
+							<button>
+                            Sign up
+						</button>
+						<p>
+							<span>
+								Already have an account?
+							</span>
+							<b onclick="toggle()" class="pointer">
+								Sign in here
+							</b>
+						</p>
+					</div>
+				</div>
+                
+			</form>
+			<!-- END SIGN UP -->
+			<!-- SIGN IN -->
+			<form class="col align-items-center flex-col sign-in" action="/login" method="post">
+                <div class="form-wrapper align-items-center">
+                    <div class="form sign-in">
+                        <div class="input-group">
+                            <i class='bx bxs-user'></i>
+							<input type="text" placeholder="Username" name="email">
+						</div>
+						<div class="input-group">
+                            <i class='bx bxs-lock-alt'></i>
+							<input type="password" placeholder="Password" name = "password">
+						</div>
+						<button>
+                            Sign in
+						</button>
+						<p>
+							<b>
+								Forgot password?
+							</b>
+						</p>
+						<p>
+                            <span>
+                                Don't have an account?
+							</span>
+							<b onclick="toggle()" class="pointer">
+								Sign up here
+							</b>
+						</p>
+					</div>
+				</div>
+				<div class="form-wrapper">
+                    
+                </div>
+			</form>
+			<!-- END SIGN IN -->
+		</div>
+		<!-- END FORM SECTION -->
+		<!-- CONTENT SECTION -->
+		<div class="row content-row">
+            <!-- SIGN IN CONTENT -->
+			<div class="col align-items-center flex-col">
+                <div class="text sign-in">
+                    <h2>
+                        Welcome to <br>BarkCare
+					</h2>
+                    
+				</div>
+				<div class="img sign-in">
+                    
+                </div>
+			</div>
+			<!-- END SIGN IN CONTENT -->
+			<!-- SIGN UP CONTENT -->
+			<div class="col align-items-center flex-col">
+                <div class="img sign-up">
+                    
+                </div>
+				<div class="text sign-up">
+                    <h2>
+                        Join with us
+					</h2>
+                    
+				</div>
+			</div>
+			<!-- END SIGN UP CONTENT -->
+		</div>
+		<!-- END CONTENT SECTION -->
+	</div>
+    <script >
 
-  <div class="limiter">
-    <div class="container-login100">
-      <div class="wrap-login100">
-        <form class="login100-form validate-form" method="post" action="/login">
-          <span class="login100-form-title p-b-43">
-            Login to continue
-          </span>
+      //signup
 
+      let container = document.getElementById('container')
 
-          <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-            <input class="input100" type="text" name="email">
-            <span class="focus-input100"></span>
-            <span class="label-input100">Email</span>
-          </div>
+      toggle = () => {
+        container.classList.toggle('sign-in')
+        container.classList.toggle('sign-up')
+      }
 
+      setTimeout(() => {
+        container.classList.add('sign-in')
+      }, 200)
 
-          <div class="wrap-input100 validate-input" data-validate="Password is required">
-            <input class="input100" type="password" name="password">
-            <span class="focus-input100"></span>
-            <span class="label-input100">Password</span>
-          </div>
-
-          <div class="flex-sb-m w-full p-t-3 p-b-32">
-            <div class="contact100-form-checkbox">
-              <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-              <label class="label-checkbox100" for="ckb1">
-                Remember me
-              </label>
-            </div>
-
-            <div>
-              <a href="#" class="txt1">
-                Forgot Password?
-              </a>
-            </div>
-          </div>
-
-
-          <div class="container-login100-form-btn">
-            <button class="login100-form-btn">
-              Login
-            </button>
-          </div>
-
-          <div class="text-center p-t-46 p-b-20">
-            <a class="txt2" href="/signup">D
-              sign up 
-            </a>
-          </div>
-
+      //signup
       
-        </form>
+    </script>
 
-        <div class="login100-more" style="background-image: url('images/bg-01.jpg');">
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-<!--===============================================================================================-->
-  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-  <script src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-  <script src="vendor/bootstrap/js/popper.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-  <script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-  <script src="vendor/daterangepicker/moment.min.js"></script>
-  <script src="vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-  <script src="vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-  <script src="js/main.js"></script>
-
-</body>
-</html>
+    </body>
+    </html>
