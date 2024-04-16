@@ -8,7 +8,7 @@ const router = express.Router()
 
 router.get("/login", async (req, res) => {
     res.locals.currentPage = "login";
-    res.render("login.ejs");
+  res.render('login', { error: null });
 });
 
 // router.get("/signup", async (req, res) => {

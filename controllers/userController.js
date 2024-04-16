@@ -19,7 +19,7 @@ const loginUser = async (req, res) => {
     // res.status(200).json({email, token})
     res.redirect("/home");
   } catch (error) {
-    res.status(400).json({error: error.message})
+    res.render('login', { error: error.message });
   }
 }
 
@@ -37,7 +37,7 @@ const signupUser = async (req, res) => {
     console.log(password)
     // res.status(200).json({email, token})
   } catch (error) {
-    res.status(400).json({error: error.message})
+    res.render('login', { error: error.message });
   }
 }
 

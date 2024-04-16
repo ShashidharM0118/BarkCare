@@ -285,22 +285,26 @@ html,
 
 /* RESPONSIVE */
 
-@media only screen and (max-width: 425px) {
+@media all and (min-width:100px) and (max-width: 1024px) {
+  /* put your css styles in here */
+
 
     .container::before,
     .container.sign-in::before,
     .container.sign-up::before {
-        height: 100vh;
+        height: 70vh;
         border-bottom-right-radius: 0;
         border-top-left-radius: 0;
         z-index: 0;
         transform: none;
         right: 0;
+        font-size:2.5rem;
+
     }
 
-    /* .container.sign-in .col.sign-up {
+    .container.sign-in .col.sign-up {
         transform: translateY(100%);
-    } */
+    }
 
     .container.sign-in .col.sign-in,
     .container.sign-up .col.sign-up {
