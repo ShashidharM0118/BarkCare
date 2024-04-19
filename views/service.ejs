@@ -1,6 +1,25 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
+  <style>
+    .hider{
+      display:none;
+    }
+    .plan{
+      margin:10px;
+      padding:10px;
+    }
+  </style>
+
 <body>
+
+  <% if (check) { %>
+      <script>
+          window.location.href = "https://razorpay.com";     
+        <% check = null; %> 
+      </script>
+    <% } %>
+
+
 
   <!-- Services Start -->
   <div class="container-fluid py-5">
@@ -16,7 +35,7 @@
             <div>
               <h5 class="text-uppercase mb-3">Pet Boarding</h5>
               <p>Secure stays with care; your pet's home away, ensuring comfort and love at BarkCare <br></p>
-              <a class="text-primary text-uppercase" href="">Read More<i class="bi bi-chevron-right"></i></a>
+           
             </div>
           </div>
         </div>
@@ -26,7 +45,7 @@
             <div>
               <h5 class="text-uppercase mb-3">Pet Feeding</h5>
               <p>Nourishing meals served, tailored to taste, ensuring health and happiness for your pet companion.</p>
-              <a class="text-primary text-uppercase" href="">Read More<i class="bi bi-chevron-right"></i></a>
+       
             </div>
           </div>
         </div>
@@ -36,7 +55,7 @@
             <div>
               <h5 class="text-uppercase mb-3">Pet Grooming</h5>
               <p>Indulgent spa days for pets; expert grooming, ensuring they shine inside and out.</p>
-              <a class="text-primary text-uppercase" href="">Read More<i class="bi bi-chevron-right"></i></a>
+
             </div>
           </div>
         </div>
@@ -46,7 +65,7 @@
             <div>
               <h5 class="text-uppercase mb-3">Pet Training</h5>
               <p>Personalized attention, expert care; your pet's happiness and well-being are our top priorities.</p>
-              <a class="text-primary text-uppercase" href="">Read More<i class="bi bi-chevron-right"></i></a>
+        
             </div>
           </div>
         </div>
@@ -56,7 +75,7 @@
             <div>
               <h5 class="text-uppercase mb-3">Pet Exercise</h5>
               <p>Active days, vibrant health; our tailored programs keep pets happy, engaged, and energized.</p>
-              <a class="text-primary text-uppercase" href="">Read More<i class="bi bi-chevron-right"></i></a>
+   
             </div>
           </div>
         </div>
@@ -66,7 +85,7 @@
             <div>
               <h5 class="text-uppercase mb-3">Pet Treatment</h5>
               <p>Compassionate care, health prioritized; expert attention for your pet's well-being and happiness.</p>
-              <a class="text-primary text-uppercase" href="">Read More<i class="bi bi-chevron-right"></i></a>
+     
             </div>
           </div>
         </div>
@@ -89,7 +108,7 @@
         <div class="col-lg-4">
           <div class="bg-light text-center pt-5 mt-lg-5">
             <h2 class="text-uppercase">Basic</h2>
-            <h6 class="text-body mb-5">The Best Choice</h6>
+            <h6 class="text-body mb-5">The Good Choice</h6>
             <div class="text-center bg-primary p-4 mb-2">
               <h1 class="display-4 text-white mb-0">
                 <small class="align-top" style="font-size: 22px; line-height: 45px;">₹</small>499<small
@@ -114,14 +133,17 @@
                 <span>Pet Exercise</span>
                 <i class="bi bi-x fs-4 text-danger"></i>
               </div>
-              <a href="/home/basic" class="btn btn-primary text-uppercase py-2 px-4 my-3">Order Now</a>
+              <form action="service" method = "post">
+                <input class = "hider" name = "subType" value="BASIC"/>
+                <button class="btn btn-primary text-uppercase py-2 px-4 my-3" >Order Now</button>
+              </form>
             </div>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="bg-light text-center pt-5">
             <h2 class="text-uppercase">Standard</h2>
-            <h6 class="text-body mb-5">The Best Choice</h6>
+            <h6 class="text-body mb-5">The Better Choice</h6>
             <div class="text-center bg-dark p-4 mb-2">
               <h1 class="display-4 text-white mb-0">
                 <small class="align-top" style="font-size: 22px; line-height: 45px;">₹</small>699<small
@@ -146,7 +168,10 @@
                 <span>Pet Exercise</span>
                 <i class="bi bi-x fs-4 text-danger"></i>
               </div>
-              <a href="service/standard" class="btn btn-primary text-uppercase py-2 px-4 my-3">Order Now</a>
+              <form action="service" method = "post">
+                <input class = "hider" name = "subType" value="STANDARD"/>
+                <button class="btn btn-primary text-uppercase py-2 px-4 my-3" >Order Now</button>
+              </form>
             </div>
           </div>
         </div>
@@ -178,7 +203,10 @@
                 <span>Pet Exercise</span>
                 <i class="bi bi-check2 fs-4 text-primary"></i>
               </div>
-              <a href="service/extended" class="btn btn-primary text-uppercase py-2 px-4 my-3">Order Now</a>
+              <form action="service" method = "post">
+                <input class = "hider" name = "subType" value="EXTENDED"/>
+                <button class="btn btn-primary text-uppercase py-2 px-4 my-3" >Order Now</button>
+              </form>
             </div>
           </div>
 </div>
@@ -187,28 +215,24 @@
   </div>
   <!-- Pricing Plan End -->
 
-  <!--  Current Services Start -->
-  <div class="container-fluid py-5">
-    <div class="container">
-      <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
-        <h6 class="text-primary text-uppercase">Services</h6>
-        <h1 class="display-5 text-uppercase mb-0">Your current Services</h1>
-      </div>
-     
-    
-    </div>
-  </div>
-  <!-- Current Services End -->
-
+  
   <!--  Current plan Start -->
   <div class="container-fluid py-5">
     <div class="container">
       <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
         <h6 class="text-primary text-uppercase">Services</h6>
         <h1 class="display-5 text-uppercase mb-0">Your current plan </h1>
+        <P>MAX PLANS : 2</P>
+        <% for (let i = 0; i < 2 && i < subs.length; i++) { %>
+            <div class="plan">
+                <h3 class="plan-header">PLAN <%= i + 1 %>: <%= subs[i].subType %></h5>
+            </div>
+        <% } %>
+
+
+
       </div>
-
-
+     
     </div>
   </div>
   <!-- Current plan  End -->

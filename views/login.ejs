@@ -3,6 +3,12 @@
 
 <head>
 	<link rel="stylesheet" href="css/login.css">
+  <style>
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
     <div id="container" class="container">
@@ -13,6 +19,14 @@
                 <div class="form-wrapper align-items-center">
                     <div class="form sign-up">
                         <div class="input-group">
+                          <% if (error) { %>
+                            <script>
+                              alert('<%= error %>');
+                              toggle();
+                              <% error = null; %> 
+                            </script>
+                          <% } %>
+                            
                             <i class='bx bxs-user'></i>
 							<input type="text" placeholder="Username" name="username">
 						</div>
@@ -46,16 +60,26 @@
 			<!-- END SIGN UP -->
 			<!-- SIGN IN -->
 			<form class="col align-items-center flex-col sign-in" action="/login" method="post">
+         
                 <div class="form-wrapper align-items-center">
                     <div class="form sign-in">
+                      <% if (error) { %>
+                        <script>
+                          alert('<%= error %>');
+                          
+                        </script>
+                      <% } %>
                         <div class="input-group">
+                       
                             <i class='bx bxs-user'></i>
+                         
 							<input type="text" placeholder="Username" name="email">
 						</div>
 						<div class="input-group">
                             <i class='bx bxs-lock-alt'></i>
 							<input type="password" placeholder="Password" name = "password">
 						</div>
+                    
 						<button>
                             Sign in
 						</button>
@@ -132,4 +156,4 @@
     </script>
 
     </body>
-    </html>
+    </html

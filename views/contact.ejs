@@ -3,6 +3,13 @@
 <body>
 
     <!-- Contact Start -->
+  <% if (check) { %>
+    <script>
+      alert('Your message has been recorded.');
+      toggle();
+      <% check = null; %> 
+    </script>
+  <% } %>
     <div class="container-fluid pt-5 ">
         <div class="container justify-content-center">
             <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
