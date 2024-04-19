@@ -62,21 +62,19 @@ router.post("/", async (req, res) =>{
 
 
 
-     // Async function enables allows handling of promises with await
-
-       // First, define send settings by creating a new transporter: 
+    
        let transporter = nodemailer.createTransport({
-         host: "smtp.gmail.com", // SMTP server address (usually mail.your-domain.com)
-         port: 465, // Port for SMTP (usually 465)
-         secure: true, // Usually true if connecting to port 465
+         host: "smtp.gmail.com", 
+         port: 465, 
+         secure: true,
          auth: {
-           user: "barkcare.mail@gmail.com", // Your email address
-           pass: "hlhm gpkf hkyo zmrw", // Password (for gmail, your app password)
-           // ⚠️ For better security, use environment variables set on the server for these values when deploying
+           user: "barkcare.mail@gmail.com", 
+           pass: "hlhm gpkf hkyo zmrw", 
+           
          },
        });
 
-       // Define and send message inside transporter.sendEmail() and await info about send from promise:
+      
        let info = await transporter.sendMail({
          from: 'barkcare.mail@gmail.com',
          to: `${user.email}`,
@@ -85,8 +83,8 @@ router.post("/", async (req, res) =>{
          <h1>Payment Successfull !</h1>
          <p>hello ${user.username}, <p>
          <p>you have successfully purchased ${subType} plan</p>
-         <p>YOu Can meet our proffesionals every sunday 6:00 pm through <a>https://meet.google.com/gdx-kzzs-iyo?ijlm=1713299718780&adhoc=1&hs=187</a></p>
-
+         <p>You Can meet our profesionals every sunday 6:00 pm through </p>
+          <a href="https://meet.google.com/gdx-kzzs-iyo?ijlm=1713299718780&adhoc=1&hs=187">https://meet.google.com/gdx-kzzs-iyo?ijlm=1713299718780&adhoc=1&hs=187</a>
           For more queries of the plan contact : 9483746823
          `,
        });

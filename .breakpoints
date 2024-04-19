@@ -3,9 +3,9 @@
     "controllers/userController.js": [
       {
         "id": "f190e069-d418-471b-916f-29d01add4059",
-        "line": 31,
-        "version": 287,
-        "index": 765
+        "line": 34,
+        "version": 1,
+        "index": 850
       }
     ]
   }
